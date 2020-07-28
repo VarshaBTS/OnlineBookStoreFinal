@@ -1,0 +1,23 @@
+<app-user-home></app-user-home>
+<div class="container-fluid">
+    <div *ngIf="book && book.length > 0  else elseBlock">
+        <div *ngFor="let c of book">
+
+            <div class="col-xl-3 col-md-6 mb-4 card border-0 shadow">
+                
+                <div class="card-body text-center">
+                    <h5 class="card-title"><b>{{c.title}}</b></h5>
+                    <h6 class="card-title">{{c.author}}</h6>
+                    <h6 class="card-text">{{c.description}}</h6>
+
+                    <a href="#" class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>Add
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no Books to display! </h4>
+    </ng-template>
+</div>

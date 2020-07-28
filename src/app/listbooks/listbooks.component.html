@@ -1,0 +1,51 @@
+<app-admin-page></app-admin-page>
+
+<div class="container-fluid">
+    <h1 routerLink="/CreateBook">Create New Book</h1>
+    <table summary="ListBooks" class="table table-striped" *ngIf="book && book.length > 0  else elseBlock">
+
+        <thead>
+            <tr>
+                <th>BookId</th>
+                <th>CategoryName</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+                <th>ISBN</th>
+                <th>Price</th>
+                <th>PublishedDate</th>
+                <th colspan="2" scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let b of book">
+                <td>{{ b.book_id}}</td>
+                <td *ngIf="b.category!=null; else elseCategory">{{b.category.categoryName}}</td>
+                <td>{{b.title}}</td>
+                <td>{{b.author}}</td>
+                <td>{{b.description}}</td>
+                <td>{{b.isbn}}</td>
+                <td>{{b.price}}</td>
+                <td>{{b.published_Date}}</td>
+
+                <td><button type="button" class="btn btn-small btn-block btn-secondary"
+                    (click)=update(b)>Edit </button></td>
+
+                <td><input type="button" value="Delete" (click)="delete(b.book_id)" class="btn btn-danger"></td>
+
+
+
+            </tr>
+
+
+
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4> There are no Categories to display! </h4>
+    </ng-template>
+    <ng-template #elseCategory>
+        <h6>No category </h6>
+    </ng-template>
+</div>

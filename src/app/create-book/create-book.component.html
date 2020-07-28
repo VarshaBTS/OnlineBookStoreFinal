@@ -1,0 +1,65 @@
+<app-admin-page></app-admin-page>
+<div class="container">
+    <h3>Create Book</h3>
+    <form #createBookForm="ngForm" (ngSubmit)='onCreateBook(createBookForm.value)'>
+
+        <div class="form-group">
+            <label class="col-form-label">Book Title</label>
+            <input type="text" class="form-control" name="title"
+                [ngClass]="{'is-invalid':title.invalid && title.touched,'is-valid':title.valid}" #title="ngModel"
+                required ngModel />
+            <div *ngIf="title.errors" class="invalid-feedback">
+                Enter Title
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label">Author Name</label>
+            <input type="text" class="form-control" name="author"
+                [ngClass]="{'is-invalid':author.invalid && author.touched,'is-valid':author.valid}" #author="ngModel"
+                required ngModel />
+            <div *ngIf="author.errors" class="invalid-feedback">
+                Enter Author
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label">Description</label>
+            <input type="text" class="form-control" name="description"
+                [ngClass]="{'is-invalid':description.invalid && description.touched,'is-valid':description.valid}"
+                #description="ngModel" required ngModel />
+            <div *ngIf="description.errors" class="invalid-feedback">
+                Enter description
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label" required="true">ISBN</label>
+            <input type="number" class="form-control" name="ISBN" ngModel
+                [ngClass]="{'is-invalid':ISBN.invalid && ISBN.touched,'is-valid':ISBN.valid}" #ISBN="ngModel" required />
+            <div *ngIf="ISBN.errors" class="invalid-feedback">
+                Enter ISBN
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label" required="true">Price</label>
+            <input type="number" class="form-control" name="price" ngModel
+                [ngClass]="{'is-invalid':price.invalid && price.touched,'is-valid':price.valid}" #price="ngModel" required />
+            <div *ngIf="price.errors" class="invalid-feedback">
+                Enter price
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label" required="true">Published Date</label>
+            <input type="date" class="form-control" name="published_Date" ngModel
+                [ngClass]="{'is-invalid':published_Date.invalid && published_Date.touched,'is-valid':published_Date.valid}" #published_Date="ngModel" required />
+            <div *ngIf="published_Date.errors" class="invalid-feedback">
+                Enter published Date
+            </div>
+        </div>
+        
+
+        
+        <div class="row">
+            <input [disabled]="createBookForm.invalid" type="submit" value="Save" class="btn btn-success">
+            <button routerLink="/ListBooks" class="btn btn-secondary">Cancel</button>
+        </div>-
+    </form>
+</div>

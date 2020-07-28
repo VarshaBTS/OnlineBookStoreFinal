@@ -1,0 +1,82 @@
+<app-admin-page></app-admin-page>
+<p>Edit Book </p>
+<form #updBookForm="ngForm" (ngSubmit)='update(updBookForm.value)'>
+
+    <div class="form-group">
+        <label>Book ID </label>
+        <input required minlength="1" type="number" [(ngModel)]="obj1.book_id" readonly="readonly" #book_id='ngModel'
+            name="book_id" ngModel class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Book Title </label>
+        <input required type="text" [(ngModel)]="obj1.title" #title='ngModel' name="title" ngModel
+        [ngClass]="{'is-invalid':title.invalid && title.touched,'is-valid':title.valid}" class="form-control">
+        <div *ngIf="title.errors" class="invalid-feedback">
+            Enter Title 
+          </div>
+    </div>
+    <div class="form-group">
+        <label>Book Author </label>
+        <input required type="text" [(ngModel)]="obj1.author" #author='ngModel' name="author" ngModel
+        [ngClass]="{'is-invalid':author.invalid && author.touched,'is-valid':author.valid}" class="form-control">
+        <div *ngIf="author.errors" class="invalid-feedback">
+            Enter author 
+          </div>
+    </div>
+    <div class="form-group">
+        <label>Book description </label>
+        <input required type="text" minlength="3" [(ngModel)]="obj1.description" #description='ngModel' name="description" ngModel
+        [ngClass]="{'is-invalid':description.invalid && description.touched,'is-valid':description.valid}" class="form-control">
+        <div *ngIf="description.errors" class="invalid-feedback">
+            Enter description 
+          </div>
+    </div>
+    <div class="form-group">
+        <label>ISBN</label>
+        <input required type="text" [(ngModel)]="obj1.ISBN" #ISBN='ngModel' name="ISBN" ngModel
+        [ngClass]="{'is-invalid':ISBN.invalid && ISBN.touched,'is-valid':ISBN.valid}" class="form-control">
+        <div *ngIf="ISBN.errors" class="invalid-feedback">
+            Enter ISBN 
+          </div>
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input required  type="number" [(ngModel)]="obj1.price" #price='ngModel' name="price" ngModel
+        [ngClass]="{'is-invalid':price.invalid && price.touched,'is-valid':price.valid}" class="form-control">
+        <div *ngIf="price.errors" class="invalid-feedback">
+            Enter price 
+          </div> 
+    </div>
+    <div class="form-group">
+        <label>Published Date</label>
+        <input required  type="date" [(ngModel)]="obj1.published_Date" #published_Date='ngModel' name="published_Date" ngModel
+        [ngClass]="{'is-invalid':published_Date.invalid && published_Date.touched,'is-valid':published_Date.valid}" class="form-control">
+        <div *ngIf="published_Date.errors" class="invalid-feedback">
+            Enter published_Date 
+          </div> 
+    </div>
+    <div class="form-group">
+        <label>Category ID</label>
+        <input required  type="number" [(ngModel)]="obj1.category.categoryId" #categoryId='ngModel' name="category.categoryId" ngModel
+        [ngClass]="{'is-invalid':categoryId.invalid && categoryId.touched,'is-valid':categoryId.valid}" class="form-control">
+        <div *ngIf="categoryId.errors" class="invalid-feedback">
+            Enter category ID 
+          </div> 
+    </div>
+    <div class="form-group">
+        <label>Category Name </label>
+        <input required type="text" [(ngModel)]="obj1.category.categoryName" #categoryName='ngModel' name="category.categoryName" ngModel
+        [ngClass]="{'is-invalid':categoryName.invalid && categoryName.touched,'is-valid':categoryName.valid}" class="form-control">
+        <div *ngIf="categoryName.errors" class="invalid-feedback">
+            Enter categoryName 
+          </div>
+    </div>
+
+    <div class="row">
+       <input [disabled]="updBookForm.invalid" type="submit" value="Save" class="btn btn-success">
+       <button routerLink="/ListBooks" class="btn btn-secondary">Back</button>
+    </div>
+    
+</form>

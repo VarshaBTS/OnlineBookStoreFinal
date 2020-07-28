@@ -1,0 +1,29 @@
+label,p{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+.invalid-feedback{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+.btn-success{
+    display: block; 
+    margin: auto; 
+    font-family: 'Times New Roman', Times, serif;
+  
+   
+   
+}
+.btn-secondary{
+    font-family: 'Times New Roman', Times, serif;
+    
+   
+    
+}
+p{
+    text-align: center;
+    font-size: 20px;
+}
+div{
+    text-align: center;
+}

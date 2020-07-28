@@ -1,0 +1,20 @@
+<app-admin-page></app-admin-page>
+
+<p>Edit category </p>
+<div class="container">
+    <form #updateCategoryForm="ngForm" (ngSubmit)='onUpdateCat(updateCategoryForm.value)'>
+        
+        <div class="form-group">
+            <label>Name:</label> &nbsp;
+            <input required type="text"  #name='ngModel' name="categoryName" ngModel
+            [ngClass]="{'is-invalid':name.invalid && name.touched,'is-valid':name.valid}" class="form-control-sm">
+            <div *ngIf="name.errors" class="invalid-feedback">
+                Enter Category Name 
+              </div>
+        </div>
+        <div class="row">
+            <input [disabled]="updateCategoryForm.invalid" type="submit" value="Save" class="btn btn-success">
+            <button routerLink="/ListCategories" class="btn btn-secondary">Cancel</button>
+         </div>
+    </form>
+</div>

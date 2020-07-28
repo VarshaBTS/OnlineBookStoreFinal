@@ -1,0 +1,19 @@
+<app-user-home></app-user-home>
+<div class="container">
+    <div class="cards">
+
+    </div>
+    <div *ngFor="let b of book">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{b.title}}</h5>
+                <h5 class="card-author">{{b.author}}</h5>
+                <p class="card-text">{{b.description}}</p>
+                <p class="card-published_Date">{{b.published_Date}}</p>
+                <p class="card-price">{{b.price}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>

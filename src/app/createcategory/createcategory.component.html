@@ -1,0 +1,23 @@
+<app-admin-page></app-admin-page>
+
+<p>Create category </p>
+<div class="container">
+    <form #createCategoryForm="ngForm" (ngSubmit)='onCreateCat(createCategoryForm.value)'>
+
+        <div class="form-group">
+            <label>Name:</label> &nbsp;
+            <input required type="text" [(ngModel)]="Category.categoryName" #name='ngModel' name="categoryName" ngModel
+                [ngClass]="{'is-invalid':name.invalid && name.touched,'is-valid':name.valid}" class="form-control-sm">
+            <div *ngIf="name.errors" class="invalid-feedback">
+                Enter Category Name
+            </div>
+
+    </div> 
+
+
+            <div class="row">
+                <input [disabled]="createCategoryForm.invalid" type="submit" value="Save" class="btn btn-success">
+                <button routerLink="/ListCategories" class="btn btn-secondary">Cancel</button>
+            </div>
+    </form>
+</div>
