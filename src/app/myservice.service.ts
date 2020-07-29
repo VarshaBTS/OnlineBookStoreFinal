@@ -88,6 +88,19 @@ id:number;
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
     return this.httpService.put("http://localhost:8765/bookstore/UpdateBook", updateBook,  { headers, responseType: 'text'});
   }
+  //----assigning book to category
+  public assignbookTocategory(cid: number,bid:number) {
+    console.log("ins service assign test to question");
+    const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
+    return this.httpService.put("http://localhost:8765/bookstore/assignBookToCat/"+cid+"/"+bid,  { headers, responseType: 'text'});
+  }
+  assbid:Book;
+  public assignBtoC(assbid: Book) {
+    this.assbid = assbid;
+  }
+  public assignBtoCMethod() {
+    return this.assbid;
+  }
 
   
 }

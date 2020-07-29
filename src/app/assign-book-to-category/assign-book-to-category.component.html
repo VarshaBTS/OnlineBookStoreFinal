@@ -1,0 +1,34 @@
+
+<div class="container">
+    <form #assign="ngForm" (ngSubmit)="onSubmit(assign.value)" >
+
+        <div class="form-group">
+            <label>Book ID </label>
+            <input required minlength="1" type="number" [(ngModel)]="obj1.book_id" readonly="readonly"  #bid='ngModel'
+                name="book_id" ngModel class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Category ID </label>
+            <input required type="number" [(ngModel)]="categoryId" #un='ngModel' name="categoryId" ngModel
+            [ngClass]="{'is-invalid':un.invalid && un.touched,'is-valid':un.valid}" class="form-control">
+            <div *ngIf="un.errors" class="invalid-feedback">
+                <div [hidden]='!un.errors.required'>
+                    Provide category id
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+        <input [disabled]="assign.invalid" type="submit" value="Assign" class="btn btn-success">
+        <button routerLink="/ListBooks" class="btn btn-secondary">Back</button>
+        </div>
+        <br>
+
+    </form>
+
+    <p class="alert alert-success" *ngIf="flag">{{error}}</p>
+    <p class="alert alert-danger" *ngIf="flag==false">{{error}}</p>
+
+</div>
+  

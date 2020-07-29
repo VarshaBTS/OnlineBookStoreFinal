@@ -1,4 +1,4 @@
-<app-admin-page></app-admin-page>
+
 <p>Edit Book </p>
 <form #updBookForm="ngForm" (ngSubmit)='update(updBookForm.value)'>
 
@@ -10,15 +10,20 @@
 
     <div class="form-group">
         <label>Book Title </label>
-        <input required type="text" [(ngModel)]="obj1.title" #title='ngModel' name="title" ngModel
+        <input required type="text" [(ngModel)]="obj1.title"  #title='ngModel' name="title" ngModel pattern="[a-zA-Z ]*"
         [ngClass]="{'is-invalid':title.invalid && title.touched,'is-valid':title.valid}" class="form-control">
         <div *ngIf="title.errors" class="invalid-feedback">
             Enter Title 
+            <div *ngIf='title.errors.pattern'>Book title should contain only alphabets</div> 
           </div>
+         <!---<div *ngIf='title.errors && title.touched' class="alert alert-danger">
+            <div [hidden]='!title.errors.required'> Provide Customer Name </div>
+            <div *ngIf='title.errors.pattern'>Customer Name should be only alphabets</div>  
+        </div>-->
     </div>
     <div class="form-group">
         <label>Book Author </label>
-        <input required type="text" [(ngModel)]="obj1.author" #author='ngModel' name="author" ngModel
+        <input required type="text" [(ngModel)]="obj1.author" pattern=[a-zA-Z\s]* #author='ngModel' name="author" ngModel
         [ngClass]="{'is-invalid':author.invalid && author.touched,'is-valid':author.valid}" class="form-control">
         <div *ngIf="author.errors" class="invalid-feedback">
             Enter author 
@@ -34,16 +39,16 @@
     </div>
     <div class="form-group">
         <label>ISBN</label>
-        <input required type="text" [(ngModel)]="obj1.ISBN" #ISBN='ngModel' name="ISBN" ngModel
-        [ngClass]="{'is-invalid':ISBN.invalid && ISBN.touched,'is-valid':ISBN.valid}" class="form-control">
-        <div *ngIf="ISBN.errors" class="invalid-feedback">
+        <input required type="number" minlength="3" [(ngModel)]="obj1.ISBN" #isbn='ngModel' name="ISBN" ngModel
+        [ngClass]="{'is-invalid':isbn.invalid && isbn.touched,'is-valid':isbn.valid}" class="form-control">
+        <div *ngIf="isbn.errors" class="invalid-feedback">
             Enter ISBN 
           </div>
     </div>
 
     <div class="form-group">
         <label>Price</label>
-        <input required  type="number" [(ngModel)]="obj1.price" #price='ngModel' name="price" ngModel
+        <input required  type="number" pattern=[0-9]* [(ngModel)]="obj1.price" #price='ngModel' name="price" ngModel
         [ngClass]="{'is-invalid':price.invalid && price.touched,'is-valid':price.valid}" class="form-control">
         <div *ngIf="price.errors" class="invalid-feedback">
             Enter price 
@@ -57,7 +62,8 @@
             Enter published_Date 
           </div> 
     </div>
-    <div class="form-group">
+
+    <!-- <div class="form-group">
         <label>Category ID</label>
         <input required  type="number" [(ngModel)]="obj1.category.categoryId" #categoryId='ngModel' name="category.categoryId" ngModel
         [ngClass]="{'is-invalid':categoryId.invalid && categoryId.touched,'is-valid':categoryId.valid}" class="form-control">
@@ -72,7 +78,7 @@
         <div *ngIf="categoryName.errors" class="invalid-feedback">
             Enter categoryName 
           </div>
-    </div>
+    </div> -->
 
     <div class="row">
        <input [disabled]="updBookForm.invalid" type="submit" value="Save" class="btn btn-success">

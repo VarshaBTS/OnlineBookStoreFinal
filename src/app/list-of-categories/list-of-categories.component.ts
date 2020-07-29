@@ -25,15 +25,10 @@ export class ListOfCategoriesComponent implements OnInit {
     this.cat = response;
     console.log(this.cat);
   }
-  /*
-  update(updateCat: Category) {
-    this.myservice.updateCategory(updateCat);
-    this.router.navigate(['/UpdateCategory']); //updating the question
-    console.log('end of list all test update button')
-  }*/
+
   update(cid: number) {
     this.myservice.updateCategory(cid);
-    this.router.navigate(['/UpdateCategory',cid]); //updating the question
+    this.router.navigate(['/UpdateCategory', cid]); 
     console.log('end of list all test update button')
   }
   delete(categoryId: number) {

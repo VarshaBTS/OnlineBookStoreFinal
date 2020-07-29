@@ -42,5 +42,9 @@ export class ListbooksComponent implements OnInit {
     this.myservice.updateBook(book);
     this.router.navigate(['/UpdateBook']);
   }
+  assign(book:Book){
+    this.myservice.assignBtoC(book);
+    this.router.navigate(['/assign']);
+  }
 
 }
